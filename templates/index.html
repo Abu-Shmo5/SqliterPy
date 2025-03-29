@@ -4,5 +4,29 @@
 
 {% block body %}
 <button class="btn btn-outline-primary" onclick="import_database()">Import Database</button>
+<button class="btn btn-outline-primary" onclick="import_database()">Create Database</button>
 <h1>Number of Databases: {{ databases | length }}</h1>
+{% if databases | length != 0 %}
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">Name</div>
+    <div class="col-3">Commands</div>
+    <div class="col-3"></div>
+
+    {% for database in databases %}
+    <div class="col-3"></div>
+    <div class="col-3">
+        {{ database }}
+    </div>
+    <div class="col-3">
+        <a class="btn btn-outline-primary" href="/database/{{ database }}">Database</a>
+        <a class="btn btn-outline-primary" href="/api/export/{{ database }}">Export</a>
+        <a class="btn btn-outline-primary" href="/api/delete/{{ database }}">Delete</a>
+    </div>
+    <div class="col-3"></div>
+    {% endfor %}
+</div>
+{% else %}
+<h1>No databases to display</h1>
+{% endif %}
 {% endblock %}
