@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Config{% endblock %}
+
+
+{% block body %}
+<h1>Configs</h1>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">Key</div>
+    <div class="col-3">Value</div>
+    <div class="col-3"></div>
+    
+    <div class="col-3"></div>
+    <div class="col-3">System Font</div>
+    <div class="col-3">
+        <div class="btn-group">
+            <select class="form-select" aria-label="Fonts Select">
+                <option hidden selected>Fonts</option>
+                {% for font in fonts %}
+                    <option value="{{font.file_name}}">{{font.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="col-3"></div>
+
+    <div class="col-3"></div>
+    <div class="col-3">Default Data Font</div>
+    <div class="col-3">
+        <div class="btn-group">
+            <select class="form-select" aria-label="Fonts Select">
+                <option hidden selected>Fonts</option>
+                {% for font in fonts %}
+                    <option value="{{font.file_name}}">{{font.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="col-3"></div>
+
+    <div class="col-3"></div>
+    <div class="col-3">Data Font</div>
+    <div class="col-3">
+        Specific Column - 
+        <div class="btn-group">
+            <select class="form-select" aria-label="Fonts Select">
+                <option hidden selected>Fonts</option>
+                {% for font in fonts %}
+                    <option value="{{font.file_name}}">{{font.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
+{% endblock %}
