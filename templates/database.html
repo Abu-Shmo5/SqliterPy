@@ -3,7 +3,28 @@
 {% block title %}Database{% endblock %}
 
 
-
 {% block body %}
-<h1>Hello From Database</h1>
+<h1>Database: {{ database_name }}</h1>
+<button class="btn btn-outline-primary">Create Table</button>
+{% if tables | length != 0 %}
+<h1>Tables:</h1>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">Name</div>
+    <div class="col-3">Commands</div>
+    <div class="col-3"></div>
+
+    {% for table in tables %}
+    <div class="col-3"></div>
+    <div class="col-3">{{table}}</div>
+    <div class="col-3">
+        <a class="btn btn-outline-primary" href="/table/{{ database_name }}/{{ table }}">Table</a>
+        <a class="btn btn-outline-primary" href="/api/delete/{{ database_name }}/{{ table }}">Delete</a>
+    </div>
+    <div class="col-3"></div>
+    {% endfor %}
+</div>
+{% else %}
+<h1>No Tables</h1>
+{% endif %}
 {% endblock %}
