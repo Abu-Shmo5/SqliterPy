@@ -18,11 +18,16 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/config">Config</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    {% block body %}{% endblock %}
+    <div class="container-fluid mt-1">
+        {% block body %}{% endblock %}
+    </div>
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/queries.js') }}"></script>
 </body>
