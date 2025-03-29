@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Table{% endblock %}
+
+
+{% block body %}
+<h1>Database: <a href="/database/{{ database_name }}">{{ database_name }}</a> - Table: {{ table_name }}</h1>
+<button class="btn btn-outline-primary">Show Table</button>
+<button class="btn btn-outline-primary">Insert Table</button>
+<button class="btn btn-outline-primary">Edit Table</button>
+
+{% if columns | length != 0 %}
+<h1>columns:</h1>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-3">Name</div>
+    <div class="col-3">Commands</div>
+    <div class="col-3"></div>
+
+    {% for column in columns %}
+    <div class="col-3"></div>
+    <div class="col-3">{{column.name}}</div>
+    <div class="col-3">
+        <a class="btn btn-outline-primary" href="/column/{{ database_name }}/{{ table_name }}/{{ column.name }}">column</a>
+        <a class="btn btn-outline-primary" href="/api/delete/{{ database_name }}/{{ table_name }}/{{ column.name }}">Delete</a>
+    </div>
+    <div class="col-3"></div>
+    {% endfor %}
+</div>
+{% else %}
+<h1>No columns</h1>
+
+
+{% endif %}
+{% endblock %}
